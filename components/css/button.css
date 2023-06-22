@@ -1,0 +1,49 @@
+/* Button component styles */
+.button_container {
+	position: relative;
+	--button-border-radius: 1rem;
+}
+
+.ripple_container {
+	pointer-events: none;
+	user-select: none;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	border-radius: var(--button-border-radius);
+}
+
+.button {
+	font-family: var(--root-font);
+	font-size: 1.25rem;
+	color: var(--text-primary);
+	background-color: var(--primary-500);
+	border: none;
+	padding: 0.5rem 2rem;
+	border-radius: var(--button-border-radius);
+	cursor: pointer;
+
+	transition: all 175ms ease-in-out;
+}
+
+.button_ripple {
+	position: absolute;
+	border-radius: 100%;
+	background-color: var(--primary-200);
+	opacity: 0.5;
+	display: none;
+	width: 0;
+	height: 0;
+	z-index: 50;
+}
+
+.button:focus-within {
+	outline: solid 2px var(--primary-100);
+	outline-offset: 0.125rem;
+}
+
+.button.active {
+	transform: scale(0.95);
+}
