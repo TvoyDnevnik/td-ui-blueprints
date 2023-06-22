@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<base href="." />
 		<meta charset="UTF-8" />
 		<meta
 			name="viewport"
@@ -11,23 +12,26 @@
 		<link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
 		<title>TvoyDnevnik UI Design Blueprint</title>
 
-		<!-- Component stylesheets -->
-		<link rel="stylesheet" href="./components/css/button.css" />
-
-		<!-- Component scripts -->
-		<script src="components/js/button.js" defer></script>
+		<script type="module" src="index.js" defer></script>
 	</head>
 	<body>
-		<h1>Components:</h1>
+		<div class="title">
+			<h1>
+				Hello, visitor! This page is a showcase of staging TvoyDnevnik UI
+				Library components.
+			</h1>
+			<p>
+				As components get added, they will appear here until eventually ending
+				up in an Angular library which will be used instead of Angular Material
+				in TvoyDnevnik Angular application.
+			</p>
+		</div>
 
+		<h1>Components:</h1>
 		<div class="comp_section">
 			<h2>Button</h2>
-			<div class="button_container">
-				<button type="button" class="button" id="button">Button</button>
-				<div class="ripple_container" id="ripple_container">
-					<div class="button_ripple" id="button_ripple"></div>
-				</div>
-			</div>
+			<td-button data-text="Primary"></td-button>
+			<td-button data-text="Warning" data-color="warning"></td-button>
 		</div>
 	</body>
 </html>

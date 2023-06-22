@@ -17,13 +17,30 @@
 	--primary-800: #280508;
 	--primary-900: #140304;
 
+	/* Warning color shades */
+	--warning-100: #fdf9e5;
+	--warning-200: #fbf3cc;
+	--warning-300: #faeeb2;
+	--warning-400: #f8e899;
+	--warning-500: #f6e27f;
+	--warning-600: #c5b566;
+	--warning-700: #94884c;
+	--warning-800: #625a33;
+	--warning-900: #312d19;
+
 	--text-primary: #fff;
+	--app-background: #fff;
 }
 
 body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.title {
+	max-width: 72ch;
+	text-align: center;
 }
 
 .comp_section {
