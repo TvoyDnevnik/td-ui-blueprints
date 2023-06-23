@@ -1,0 +1,61 @@
+:root {
+	--text-primary: #fff;
+	--text-primary-rgb: 255, 255, 255;
+	--app-background: #fff;
+	--app-background-rgb: 255, 255, 255;
+
+	/* Primary color shades */
+	--primary-100: #ccecff;
+	--primary-200: #99d9fe;
+	--primary-300: #66c5fe;
+	--primary-400: #33b2fd;
+	--primary-500: #009ffd;
+	--primary-600: #007fca;
+	--primary-700: #005f98;
+	--primary-800: #004065;
+	--primary-900: #002033;
+
+	/* Success color shades */
+	--success-100: #dbded9;
+	--success-200: #b7bcb3;
+	--success-300: #939b8e;
+	--success-400: #6f7968;
+	--success-500: #4b5842;
+	--success-600: #3c4635;
+	--success-700: #2d3528;
+	--success-800: #1e231a;
+	--success-900: #0f120d;
+
+	/* Warning color shades */
+	--warning-100: #fdf9e5;
+	--warning-200: #fbf3cc;
+	--warning-300: #faeeb2;
+	--warning-400: #f8e899;
+	--warning-500: #f6e27f;
+	--warning-600: #c5b566;
+	--warning-700: #94884c;
+	--warning-800: #625a33;
+	--warning-900: #312d19;
+
+	/* Error color shades */
+	--error-100: #e0cfd0;
+	--error-200: #c19ea1;
+	--error-300: #a26e72;
+	--error-400: #833d43;
+	--error-500: #640d14;
+	--error-600: #500a10;
+	--error-700: #3c080c;
+	--error-800: #280508;
+	--error-900: #140304;
+
+	/* Disabled color shades */
+	--disabled-100: #e8ebef;
+	--disabled-200: #d1d6df;
+	--disabled-300: #bbc2ce;
+	--disabled-400: #a4adbe;
+	--disabled-500: #8d99ae;
+	--disabled-600: #717a8b;
+	--disabled-700: #555c68;
+	--disabled-800: #383d46;
+	--disabled-900: #1c1f23;
+}

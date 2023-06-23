@@ -38,6 +38,11 @@ export class Button extends HTMLElement {
 	 */
 	#ripple_scale = 6;
 
+	#text;
+	#previous_color;
+	#color;
+	#disabled;
+
 	constructor() {
 		super();
 
@@ -53,15 +58,13 @@ export class Button extends HTMLElement {
 		this.#button_container = document.createElement("div");
 		this.#button_container.classList.add("button_container");
 
-		this.#setupColors();
-
 		// Setup button itself
-		const button_text = this.getAttribute("data-text") ?? "";
+		this.#text = this.getAttribute("data-text") ?? "";
+		this.#disabled = this.getAttribute("data-disabled");
 		this.#button = document.createElement("button");
 		this.#button.type = "button";
 		this.#button.classList.add("button");
 		this.#button.id = "button";
-		this.#button.innerText = button_text;
 
 		// Setup ripple container and ripple element
 		this.#ripple_container = document.createElement("div");
@@ -91,32 +94,73 @@ export class Button extends HTMLElement {
 
 		dom.appendChild(this.#button_container);
 
+		this.#processAttributes();
 		this.#setupEventListeners();
-		// setupButtonScript(button, ripple_container, ripple);
 	}
 
-	#setupColors() {
-		/**
-		 * data-color attribute, specifies what color scheme to use for the button
-		 * @type {"primary", "secondary", "warning", "error", "success", "disabled"}
-		 */
-		const color = this.getAttribute("data-color") ?? "primary";
+	/**
+	 * Sets the button text.
+	 * @param {string} text
+	 */
+	setText(text) {
+		this.#button.innerText = text;
+	}
+
+	/**
+	 * Sets the button color to specified variant.
+	 * @param {"primary", "success", "warning", "error", "disabled"} color_variant
+	 */
+	setColor(color_variant) {
+		if (color_variant === this.#color) return;
+
+		// Save previous color
+		this.#previous_color = this.#color;
+		this.#color = color_variant;
+
 		this.#button_container.style.setProperty(
 			"--background",
-			`var(--${color}-500)`
+			`var(--${this.#color}-500)`
 		);
-		this.#button_container.style.setProperty("--ripple", `var(--${color}-200)`);
+		this.#button_container.style.setProperty(
+			"--ripple",
+			`var(--${this.#color}-200)`
+		);
 		this.#button_container.style.setProperty(
 			"--outline",
-			`var(--${color}-300)`
+			`var(--${this.#color}-500)`
 		);
+	}
+
+	/**
+	 * Sets the color to previous color, which is saved internally.
+	 */
+	restorePreviousColor() {
+		if (this.#previous_color) this.setColor(this.#previous_color);
+	}
+
+	/**
+	 * Removes disabled state from the button.
+	 */
+	unsetDisabled() {
+		this.#disabled = false;
+		this.#button.style.cursor = "";
+		this.#button.style.color = "";
+		this.#button.disabled = false;
+		this.restorePreviousColor();
+	}
+
+	/**
+	 * Disables the button.
+	 */
+	setDisabled() {
+		this.#disabled = true;
+		this.#button.style.cursor = "not-allowed";
+		this.#button.style.color = "rgba(var(--text-primary-rgb), 0.65)";
+		this.#button.disabled = true;
+		this.setColor("disabled");
 	}
 
 	#setupEventListeners() {
-		this.#button_container.addEventListener("resize", (e) => {
-			console.log(e);
-		});
-
 		this.#button.addEventListener("mousedown", () => {
 			this.#buttonSetActive();
 		});
@@ -191,6 +235,17 @@ export class Button extends HTMLElement {
 			x: Math.round(e.clientX - bcr.x),
 			y: Math.round(e.clientY - bcr.y),
 		};
+	}
+
+	#processAttributes() {
+		const text = this.getAttribute("text");
+		const color = this.getAttribute("color");
+		const disabled = this.getAttribute("disabled");
+
+		this.setText(text);
+		this.setColor(color ?? "primary");
+		if (disabled === "" || disabled in ["true", "on", "yes"])
+			this.setDisabled();
 	}
 
 	#buttonSetActive() {

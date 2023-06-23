@@ -1,35 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap");
+@import "./color-palette.css";
 
 :root {
 	--root-font: "Manrope", sans-serif;
 
 	font-family: var(--root-font);
 	font-size: 16px;
-
-	/* Primary color shades */
-	--primary-100: #e0cfd0;
-	--primary-200: #c19ea1;
-	--primary-300: #a26e72;
-	--primary-400: #833d43;
-	--primary-500: #640d14;
-	--primary-600: #500a10;
-	--primary-700: #3c080c;
-	--primary-800: #280508;
-	--primary-900: #140304;
-
-	/* Warning color shades */
-	--warning-100: #fdf9e5;
-	--warning-200: #fbf3cc;
-	--warning-300: #faeeb2;
-	--warning-400: #f8e899;
-	--warning-500: #f6e27f;
-	--warning-600: #c5b566;
-	--warning-700: #94884c;
-	--warning-800: #625a33;
-	--warning-900: #312d19;
-
-	--text-primary: #fff;
-	--app-background: #fff;
 }
 
 body {
