@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "ES2022",
+    "lib": [
+      "DOM",
+      "ES2022"
+    ],
+    "moduleResolution": "Node",
+    "outDir": "dist/ts",
+    "experimentalDecorators": true,
+    "paths": {
+      "@shared/*": ["src/app/shared/*"]
+    }
+  },
+  "include": [
+    "src/app/"
+  ],
+  "exclude": [
+    "node_modules/"
+  ]
+}

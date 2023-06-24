@@ -1,0 +1,23 @@
+{
+  "name": "td-ui-design",
+  "version": "1.0.0",
+  "author": "Boma",
+  "license": "ISC",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lit": "^2.7.5",
+    "typescript": "^5.1.3",
+    "vite": "^4.3.9"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TvoyDnevnik/td-ui-blueprints.git"
+  }
+}

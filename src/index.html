@@ -8,11 +8,14 @@
 			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
 		/>
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<link rel="stylesheet" href="./styles.css" />
+		<link rel="stylesheet" href="styles.css" />
 		<link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
 		<title>TvoyDnevnik UI Design Blueprint</title>
 
-		<script type="module" src="index.js" defer></script>
+		<script
+			type="module"
+			src="app/components/button/button.component.ts"
+		></script>
 	</head>
 	<body>
 		<div class="title">
@@ -31,6 +34,7 @@
 		<div class="comp_section">
 			<h2>Button</h2>
 			<td-button text="Primary"></td-button>
+			<td-button text="Wrong color" color="wrong"></td-button>
 			<td-button text="Success" color="success"></td-button>
 			<td-button text="Warning" color="warning"></td-button>
 			<td-button text="Error" color="error"></td-button>

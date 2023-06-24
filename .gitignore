@@ -2,3 +2,10 @@
 .idea/
 .vscode/
 .vs/
+
+# Node
+node_modules/
+
+# Development artifacts
+build/
+dist/
