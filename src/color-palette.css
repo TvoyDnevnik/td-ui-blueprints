@@ -27,15 +27,15 @@
 	--success-900: #0f120d;
 
 	/* Warning color shades */
-	--warning-100: #fdf9e5;
-	--warning-200: #fbf3cc;
-	--warning-300: #faeeb2;
-	--warning-400: #f8e899;
-	--warning-500: #f6e27f;
-	--warning-600: #c5b566;
-	--warning-700: #94884c;
-	--warning-800: #625a33;
-	--warning-900: #312d19;
+	--warning-100: #fff4dd;
+	--warning-200: #ffe9bc;
+	--warning-300: #ffde9a;
+	--warning-400: #ffd379;
+	--warning-500: #ffc857;
+	--warning-600: #cca046;
+	--warning-700: #997834;
+	--warning-800: #665023;
+	--warning-900: #332811;
 
 	/* Error color shades */
 	--error-100: #e0cfd0;

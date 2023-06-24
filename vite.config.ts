@@ -6,4 +6,7 @@ export default defineConfig({
 	resolve: {
 		alias: [{ find: "@shared", replacement: "/app/shared" }],
 	},
+	server: {
+		hmr: true,
+	},
 });

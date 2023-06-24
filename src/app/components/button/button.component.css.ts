@@ -5,16 +5,10 @@ export default css`
     /* Constant variables */
     --outline-width: 0.25rem;
     --outline-offset: 0.125rem;
-    --final-padding: calc(var(--outline-width) + var(--outline-offset));
-
-    /* Dynamic color variable placeholders */
-    --td-button-color: ;
-    --td-button-ripple-color: ;
-    --td-button-outline-color: ;
   }
 
   .button_container {
-    padding: var(--final-padding);
+    width: max-content;
     position: relative;
     --button-border-radius: 1rem;
   }
@@ -24,7 +18,7 @@ export default css`
     user-select: none;
 
     position: absolute;
-    inset: var(--final-padding);
+    inset: 0;
     overflow: hidden;
     border-radius: var(--button-border-radius);
   }
@@ -32,7 +26,7 @@ export default css`
   .button {
     font-family: var(--root-font);
     font-size: 1.25rem;
-    color: var(--text-primary);
+    color: var(--td-button-text-color);
     background-color: var(--td-button-color);
     border: none;
     padding: 0.5rem 2rem;
@@ -40,7 +34,7 @@ export default css`
     cursor: pointer;
     outline: none;
 
-    transition: all 175ms ease-in-out;
+    transition: transform 175ms ease-in-out;
 
     -webkit-tap-highlight-color: transparent;
   }

@@ -4,17 +4,18 @@ import { html, LitElement } from "lit";
 import css from "./button.component.css";
 
 import {
-	ButtonColorVariant,
+	ComponentColorVariant,
 	ColorVariant,
-} from "./utils/color-variant-processor";
+} from "@shared/color-variant-processor";
 import { isTruthyString } from "@shared/truthy-string.type";
+import { HTMLBoolAttribute } from "@shared/bool-attribute.type";
 
 @customElement("td-button")
 export class TdButton extends LitElement {
 	// Configuration properties
 	@property() declare text: string;
-	@property() declare color: ButtonColorVariant;
-	@property() declare disabled: string | undefined;
+	@property() declare color: ComponentColorVariant;
+	@property() declare disabled: HTMLBoolAttribute;
 
 	private readonly ripple_scale = 6;
 
@@ -47,6 +48,11 @@ export class TdButton extends LitElement {
 						--${this.isDisabled(this.disabled)
 							? "disabled"
 							: ColorVariant(this.color)}-500
+					);
+					--td-button-text-color: var(
+						--${this.isDisabled(this.disabled)
+							? "disabled"
+							: ColorVariant(this.color)}-100
 					);
 				}
 			</style>

@@ -24,5 +24,22 @@ body {
 	flex-direction: column;
 	align-items: center;
 	padding-inline: 2rem;
-	border-left: solid 3px #eeeeee;
+	margin-top: 2rem;
+}
+
+.comp_section .components {
+	display: flex;
+	flex-direction: column;
+}
+
+.comp_section .components.button {
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.comp_section .components.input {
+	flex-direction: column;
+	flex-wrap: wrap;
+	gap: 1rem;
 }

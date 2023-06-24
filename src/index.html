@@ -12,10 +12,21 @@
 		<link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
 		<title>TvoyDnevnik UI Design Blueprint</title>
 
+		<!-- Material icons -->
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,300,0,0"
+		/>
+
 		<script
 			type="module"
 			src="app/components/button/button.component.ts"
 		></script>
+		<script
+			type="module"
+			src="app/components/input/input.component.ts"
+		></script>
+		<script type="module" src="index.ts"></script>
 	</head>
 	<body>
 		<div class="title">
@@ -33,12 +44,67 @@
 		<h1>Components:</h1>
 		<div class="comp_section">
 			<h2>Button</h2>
-			<td-button text="Primary"></td-button>
-			<td-button text="Wrong color" color="wrong"></td-button>
-			<td-button text="Success" color="success"></td-button>
-			<td-button text="Warning" color="warning"></td-button>
-			<td-button text="Error" color="error"></td-button>
-			<td-button text="Disabled" disabled></td-button>
+			<div class="components button">
+				<td-button text="Primary"></td-button>
+				<td-button text="Wrong color" color="wrong"></td-button>
+				<td-button text="Success" color="success"></td-button>
+				<td-button text="Warning" color="warning"></td-button>
+				<td-button text="Error" color="error"></td-button>
+				<td-button text="Disabled" disabled></td-button>
+			</div>
+		</div>
+
+		<div class="comp_section input">
+			<h2>Input</h2>
+			<div
+				style="
+					display: flex;
+					flex-direction: column;
+					gap: 0.5rem;
+					margin: 1rem 0;
+					max-width: 80ch;
+				"
+			>
+				<h3 style="margin: 0; text-align: center">Known problems:</h3>
+				<ol style="margin: 0">
+					<li>
+						Label positioning is inaccurate because offsetHeight doesn't get
+						updated to fontSize change. This is working as expected in Angular,
+						so should be fixed in production.
+					</li>
+					<li>
+						Autocomplete doesn't work reliably. This is because of the of
+						ShadowDOM API by Web Components API. As Angular components utilize
+						virtual DOM, this won't be a problem in production either.
+					</li>
+				</ol>
+			</div>
+
+			<div class="components input">
+				<td-input label="Number input" type="number"></td-input>
+
+				<div style="display: flex; flex-direction: column; gap: 0.5rem">
+					<td-input
+						label="Username"
+						type="text"
+						autocomplete="username"
+					></td-input>
+					<td-input
+						label="Password"
+						type="password"
+						color="warning"
+						autocomplete="current-password"
+					>
+						<span
+							class="material-symbols-outlined"
+							style="font-size: 20px"
+							slot="suffix"
+						>
+							visibility
+						</span>
+					</td-input>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

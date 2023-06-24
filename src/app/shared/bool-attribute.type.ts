@@ -1,0 +1,1 @@
+export type HTMLBoolAttribute = string | undefined;
