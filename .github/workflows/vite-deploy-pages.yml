@@ -2,7 +2,7 @@ name: Deploy Vite build to GitHub Pages
 on:
   push:
     branches:
-      - typescript
+      - master
 
 permissions:
   contents: read
