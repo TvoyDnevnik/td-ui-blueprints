@@ -5,7 +5,8 @@ import css from "./button.component.css";
 
 import {
 	ComponentColorVariant,
-	ColorVariant,
+	GetTextColorString,
+	GetColorString,
 } from "@shared/color-variant-processor";
 import { isTruthyString } from "@shared/truthy-string.type";
 import { HTMLBoolAttribute } from "@shared/bool-attribute.type";
@@ -34,26 +35,10 @@ export class TdButton extends LitElement {
 		return html`
 			<style>
 				.button_container {
-					--td-button-color: var(
-						--${this.isDisabled(this.disabled)
-							? "disabled"
-							: ColorVariant(this.color)}-500
-					);
-					--td-button-ripple-color: var(
-						--${this.isDisabled(this.disabled)
-							? "disabled"
-							: ColorVariant(this.color)}-200
-					);
-					--td-button-outline-color: var(
-						--${this.isDisabled(this.disabled)
-							? "disabled"
-							: ColorVariant(this.color)}-500
-					);
-					--td-button-text-color: var(
-						--${this.isDisabled(this.disabled)
-							? "disabled"
-							: ColorVariant(this.color)}-100
-					);
+					--td-button-color: ${this.getColor("500")};
+					--td-button-ripple-color: ${this.getColor("200")};
+					--td-button-outline-color: ${this.getColor("500")};
+					--td-button-text-color: ${this.getTextColor("500")};
 				}
 			</style>
 			<div class="button_container">
@@ -61,7 +46,7 @@ export class TdButton extends LitElement {
 					type="button"
 					class="button"
 					id="button"
-					?disabled="${this.isDisabled(this.disabled)}"
+					?disabled="${this.isDisabled()}"
 					@click="${this.buttonClicked}"
 					@pointerdown="${this.handleButtonActivation}"
 					@keydown="${this.handleButtonActivation}"
@@ -164,8 +149,20 @@ export class TdButton extends LitElement {
 		c.remove("active");
 	}
 
-	private isDisabled(disabled: string): boolean {
-		return disabled === "" || isTruthyString(disabled);
+	private isDisabled(): boolean {
+		return this.disabled === "" || isTruthyString(this.disabled);
+	}
+
+	private getColor(shade: string): string {
+		return this.isDisabled()
+			? GetColorString("disabled", shade)
+			: GetColorString(this.color, shade);
+	}
+
+	private getTextColor(shade: string): string {
+		return this.isDisabled()
+			? GetTextColorString("disabled", shade)
+			: GetTextColorString(this.color, shade);
 	}
 
 	private get button(): HTMLButtonElement {
